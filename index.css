@@ -1,0 +1,46 @@
+*{
+    margin:0;
+    padding: 0;
+    border:0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+main{
+    background-color: hsl(210, 40%, 17%);
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+main button{
+    display: inline-block;
+    height: 80px;
+    vertical-align: middle;
+    width: 100px;
+    color:white;
+    
+}
+main button{
+    background-color: hsl(var(--hue), var(--saturation), var(--lightness));
+}
+main button.start{
+    font-size: 18px;
+    --hue:300;
+    --saturation:100%;
+    --lightness:50%;
+}
+main button.change{
+    --hue:200;
+    --saturation:100%;
+    --lightness:50%;
+    font-size: 70px;
+}
+main button#add{
+    border-radius: 0 50% 50% 0;
+}
+main button#sub{
+    border-radius:50px 0 0 50%;
+}
+main button:hover{
+    --lightness:70%;
+    cursor: pointer;
+}
