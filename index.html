@@ -5,16 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Threads</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/speedometer.css" type="text/css" />
 </head>
 <body>
     <main>
         <div>
-            <button id = "sub"   class="change">-</button>
-            <button id = "start" class="start"><b>Start</b><br><small><span id="n-threads">2</span> Treads</small></button>
-            <button id = "add"   class="change"><span>+</span></button>
+            <input type="hidden" id="velocimetro">
+            <br>
+            <button id = "sub"   class="change">
+                <span>-</span> 
+            </button><button id = "start" class="start">
+                <b>START</b><br><small><span id="n-threads">2</span> Treads</small>
+            </button><button id = "add"   class="change">
+                <span>+</span>
+            </button>
         </div>
     </main>
-    <script src="index.js"></script>
+   
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/speedometer.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>

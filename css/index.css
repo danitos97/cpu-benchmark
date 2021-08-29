@@ -1,0 +1,67 @@
+*{
+    margin:0;
+    padding: 0;
+    border:0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+main{
+    background-color: hsl(233, 13%, 13%);
+    background-color: hsl(191, 68%, 27%);
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+main button{
+    display: inline-block;
+    height: 80px;
+    vertical-align: middle;
+    width: 100px;
+    color:white;
+    --hover-saturation:0%;
+    --hover-lightness:0%;
+}
+main button{
+    background-color: hsl(var(--hue), calc(var(--saturation) + var(--hover-saturation)),calc( var(--lightness) + var(--hover-lightness)) );
+    cursor:pointer;
+}
+main button.start{
+    font-size: 18px;
+    --hover:0%;
+ 
+    --hue:83;
+    --saturation:76%;
+    --lightness:26%;
+}
+main button.start.stop{
+    --hue:349;
+    --saturation:89%;
+    --lightness:52%;
+}
+main button.change{
+    font-size: 70px;
+    --hover:0%;
+    --hue:233;
+    --saturation:13%;
+    --lightness:13%;
+}
+main button#add{
+    border-radius: 0 50% 50% 0;
+}
+main button#sub{
+    border-radius:50px 0 0 50%;
+}
+main button.change:hover{
+    --hover-lightness:-10%;
+}
+main button.start:hover{
+    --hover-saturation:24%;
+}
+/* main #velocimetro{
+    background-color: black;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;;
+} */
