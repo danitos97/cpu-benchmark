@@ -11,15 +11,37 @@
 <body>
     <main>
         <div>
-            <input type="hidden" id="velocimetro">
-            <br>
-            <button id = "sub"   class="change">
+            <div class="vel-container">
+                <input type="hidden" id="velocimetro">
+            </div>
+            <!-- <button id = "sub"   class="change">
                 <span>-</span> 
-            </button><button id = "start" class="start">
-                <b>START</b><br><small><span id="n-threads">2</span> Treads</small>
-            </button><button id = "add"   class="change">
+            </button> -->
+            <div class="progress-bar">
+                <div>0%</div>
+            </div>
+            <br>
+            <div class="center">
+                <button id = "start" class="start">
+                    <b>START</b><br><span id="n-threads"></span> Benchmark
+                </button>
+            </div>
+            <!-- <button id = "add"   class="change">
                 <span>+</span>
-            </button>
+            </button> -->
+            <br>
+            <p class="detected">12 cores detected</p>
+            <br>
+            <section class="scores"> 
+                <div id="single-core">
+                    <div>Sigle core score:</div> <div class="score"></div><div class="loading"></div>
+                </div>
+                <br>
+                <div id="multi-core">
+                    <div>Multi core score:</div> <div class="score"></div><div class="loading"></div>
+                </div>
+            </section>
+           
         </div>
     </main>
    
