@@ -12,13 +12,15 @@
     // EventTarget.prototype.on = EventTarget.prototype.addEventListener
     // Array.prototype.on = function(ev,f){this.forEach(e=>{e.on(ev,f)})}
 
-    const nCores = navigator.hardwareConcurrency || 32
+    const nCores = navigator.hardwareConcurrency
     const progress = document.querySelector('.progress-bar > div')
-
- 
+    $('.detected span').html(nCores? nCores : 'No')
+    
     let threads = []
+    let scores = []
 
     $('#start').on('click',function(){
+        scores = []
         $(this).hide()
         $('.progress-bar').addClass('visible')
         $('.scores').show()
@@ -30,8 +32,8 @@
     function updateBar(porcentage){
         setTimeout(function(){
             progress.innerHTML = `${porcentage}%`
-            if(porcentage == 30){
-                setSingleScore(1333)
+            if(porcentage == 40){
+                setSingleScore(scores[0] * 10)
                 for(let i = 1; i < nCores; i++)
                     createThread()
                 setSpeed(100)
@@ -39,17 +41,25 @@
             if(porcentage < 100)
                 updateBar(++porcentage)
             else{
-                // $('#start').show()
+                $('#start').show()
                 $('.progress-bar').removeClass('visible')
                 for(let i = 0; i < nCores; i++)
                     removeThread()
                 setSpeed(0)
-                setMultiScore(7686)
+                
+                setMultiScore(sumScores())
+                console.log(scores)
             }
         },10 * 10)
         
     }
-
+    function sumScores(){
+        let sum = 0;
+        scores.forEach(score => {
+            sum += score * 10
+        })
+        return sum
+    }
     function setSingleScore(score){
         $("#single-core .loading").hide()
         $('#single-core .score').html(score)
@@ -85,6 +95,12 @@
     function createThread(){
         const hilo = new Worker('js/thread.js')
         threads.push(hilo)
+        let i = scores.length
+        scores.push(0)
+       
+        hilo.onmessage = function(){
+            scores[i]++;
+        }
     }
     function removeThread(){
         threads[0].terminate()

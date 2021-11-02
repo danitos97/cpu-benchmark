@@ -1,5 +1,6 @@
 while(true){
     fibonacci(35);
+    postMessage('u');
 }
 function fibonacci(num) {
     if (num <= 1) return 1;

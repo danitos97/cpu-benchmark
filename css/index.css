@@ -22,10 +22,14 @@ main{
 main button{
     display: inline-block;
     vertical-align: middle;
-    padding: 1em 2em;
+    letter-spacing: 1px;
+    padding: 1em 1.5em;
     color:white;
     --hover-saturation:0%;
     --hover-lightness:0%;
+}
+button b{
+    letter-spacing: 3px;
 }
 main button{
     background-color: hsl(var(--hue), calc(var(--saturation) + var(--hover-saturation)),calc( var(--lightness) + var(--hover-lightness)) );
