@@ -154,3 +154,13 @@ p.detected{
   @-webkit-keyframes spin {
     to { -webkit-transform: rotate(360deg); }
   }
+  .icon{
+      width: 32px;
+      display: inline-block;
+      cursor: pointer;
+      fill:#ffffffa0;
+  }
+  .icon:hover{
+    color:white;
+    fill:white;
+  }
