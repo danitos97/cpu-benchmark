@@ -8,9 +8,13 @@
 
 main{
     background-color: #191A19;
+    background-color: #17161A;
     display: grid;
     place-items: center;
     min-height: 100vh;
+}
+main > div{
+    height: 700px;
 }
 .center{
     text-align: center;
@@ -24,7 +28,7 @@ main button{
     vertical-align: middle;
     letter-spacing: 1px;
     padding: 1em 1.5em;
-    color:white;
+    color:#FFFBFE;
     --hover-saturation:0%;
     --hover-lightness:0%;
 }
@@ -34,14 +38,20 @@ button b{
 main button{
     background-color: hsl(var(--hue), calc(var(--saturation) + var(--hover-saturation)),calc( var(--lightness) + var(--hover-lightness)) );
     cursor:pointer;
+    margin-top:12px;
 }
 main button.start{
     font-size: 18px;
     --hover:0%;
  
-    --hue:110;
-    --saturation:45%;
-    --lightness: 43%;
+    /* --hue:110;
+    --saturation:55%;
+    --lightness: 33%; */
+    
+
+    --hue:132;
+    --saturation:95%;
+    --lightness: 22%; 
     /* color:hsl(110, 45%, 43%); */
  
    
@@ -77,25 +87,20 @@ main button.start:hover{
     height: 200px;
     margin: 0 auto;;
 } */
-.scores{
-    color:white;
+.iconos{
+    display: none;
 }
-#single-score{
-    text-align: center;
-}
-#single-score > *{
-    display: inline-block;
-    vertical-align: middle;
-}
+
 .progress-bar{
     
-    width: 340px;
+    width: 320px;
     background-color: lightgray;   
-   
+   height: 0;
 }
 .progress-bar.visible{
-    margin-top:65px;
-    margin-bottom: 10px;
+    margin-top:12px;
+    margin-bottom: 12px;
+height: auto;
 }
 .progress-bar > div{
     padding: .5em;
@@ -107,13 +112,19 @@ main button.start:hover{
 }
 .progress-bar.visible > div{
     width: 100%;
-    transition: width 10.1s linear;
+    transition: width 2.1s linear;
 }
 .progress-bar:not(.visible){
     opacity: 0;
 }
+
+#single-core{
+    margin-top:4px;
+    margin-bottom: 4px;
+}
 .scores{
     display: none;
+    color:white;
 }
 .scores > div{
     text-align: center;
@@ -124,6 +135,9 @@ main button.start:hover{
 }
 .scores > div > div:first-child{
     margin-right: 10px;
+}
+.scores h4{
+    text-align: center;
 }
 p{
     font-weight: bold;
@@ -139,8 +153,8 @@ p.detected{
 }
 .loading {
     display: inline-block;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     border: 3px solid rgba(255,255,255,.3);
     border-radius: 50%;
     border-top-color: #fff;
@@ -155,12 +169,43 @@ p.detected{
     to { -webkit-transform: rotate(360deg); }
   }
   .icon{
-      width: 32px;
+      width: 24px;
       display: inline-block;
       cursor: pointer;
       fill:#ffffffa0;
+      margin: 16px;
   }
   .icon:hover{
     color:white;
     fill:white;
+  }
+
+  form{
+      
+      text-align: center;
+      display: none;
+  }
+  form > div{
+    display: inline-block;
+  }
+  form label{
+      color:#FFFBFE;
+      font-weight: bold;
+  }
+  form input{
+      padding: .5em 1em;
+      margin-top: .5em;
+      background-color: #D0CFCF;
+      font-weight: bold;
+  }
+  form button{
+      padding:.5em;
+      background-color: #4281A4;
+      border:1px solid hsl(201, 100%, 30%);
+      color:#FFFBFE;
+      font-size:14px;
+      font-weight: bold;
+  }
+  form button:hover{
+    background-color: hsl(201, 43%, 55%);
   }

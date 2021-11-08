@@ -1,5 +1,5 @@
 while(true){
-    fibonacci(35);
+    fibonacci(32);
     postMessage('u');
 }
 function fibonacci(num) {

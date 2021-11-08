@@ -19,21 +19,22 @@
     let threads = []
     let scores = []
 
-    $('#start').on('click',function(){
+    $('#start, .restart').on('click',function(){
+        console.log("click")
         scores = []
-        $(this).hide()
+        $('.iconos,form,.start').hide()
         $('.progress-bar').addClass('visible')
-        $('.scores').show()
+        $('#single-core .score, #multi-core .score').html('')
+        $("#single-core .loading,#multi-core .loading, .scores").show();
         createThread()
         setSpeed(calcSpeed())
         updateBar(0)
     })
-
     function updateBar(porcentage){
         setTimeout(function(){
             progress.innerHTML = `${porcentage}%`
-            if(porcentage == 40){
-                setSingleScore(scores[0] * 10)
+            if(porcentage == 37){
+                setSingleScore(scores[0])
                 for(let i = 1; i < nCores; i++)
                     createThread()
                 setSpeed(100)
@@ -41,7 +42,8 @@
             if(porcentage < 100)
                 updateBar(++porcentage)
             else{
-                $('#start').show()
+                // $('#start').show()
+                $('.iconos,form').show()
                 $('.progress-bar').removeClass('visible')
                 for(let i = 0; i < nCores; i++)
                     removeThread()
@@ -50,13 +52,13 @@
                 setMultiScore(sumScores())
                 console.log(scores)
             }
-        },10 * 10)
+        },10 * 2)
         
     }
     function sumScores(){
         let sum = 0;
         scores.forEach(score => {
-            sum += score * 10
+            sum += score
         })
         return sum
     }
