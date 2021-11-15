@@ -5,16 +5,24 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
-
+body{
+    background-color: #17161A;
+  
+}
 main{
+    max-width: 1920px;
     background-color: #191A19;
     background-color: #17161A;
     display: grid;
-    place-items: center;
+    grid-template-columns: 500px 1fr 300px;
     min-height: 100vh;
+    padding: 50px;
+    padding-top: 100px;
+    margin: 0 auto;
 }
 main > div{
     height: 700px;
+   place-self: center;
 }
 .center{
     text-align: center;
@@ -61,33 +69,13 @@ main button.start.stop{
     --saturation:89%;
     --lightness:52%;
 }
-main button.change{
-    font-size: 70px;
-    --hover:0%;
-    --hue:233;
-    --saturation:13%;
-    --lightness:13%;
-}
-main button#add{
-    border-radius: 0 50% 50% 0;
-}
-main button#sub{
-    border-radius:50px 0 0 50%;
-}
-main button.change:hover{
-    --hover-lightness:-10%;
-}
+
+
 main button.start:hover{
     --hover-saturation:24%;
 }
-/* main #velocimetro{
-    background-color: black;
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    margin: 0 auto;;
-} */
-.iconos{
+
+.icon,#thanks{
     display: none;
 }
 
@@ -98,8 +86,7 @@ main button.start:hover{
    height: 0;
 }
 .progress-bar.visible{
-    margin-top:12px;
-    margin-bottom: 12px;
+    margin: 12px auto;
 height: auto;
 }
 .progress-bar > div{
@@ -112,7 +99,7 @@ height: auto;
 }
 .progress-bar.visible > div{
     width: 100%;
-    transition: width 2.1s linear;
+    transition: width 20.1s linear;
 }
 .progress-bar:not(.visible){
     opacity: 0;
@@ -160,6 +147,7 @@ p.detected{
     border-top-color: #fff;
     animation: spin 1s ease-in-out infinite;
     -webkit-animation: spin 1s ease-in-out infinite;
+  
   }
   
   @keyframes spin {
@@ -170,7 +158,6 @@ p.detected{
   }
   .icon{
       width: 24px;
-      display: inline-block;
       cursor: pointer;
       fill:#ffffffa0;
       margin: 16px;
@@ -208,4 +195,129 @@ p.detected{
   }
   form button:hover{
     background-color: hsl(201, 43%, 55%);
+  }
+
+.table{
+    width: 500px;
+    font-size: 14px;
+    border:2px solid black;
+}
+
+.table .header{
+    background-color: #95B2B8;
+    color:black;
+    font-weight: bold;
+    padding: 1em;
+}
+.table .body{
+    overflow-y: auto;
+    background-color: #0f0f0f;
+}
+.table .header,.table .body > div{
+    display:grid;
+    grid-template-columns:  60px 350px 70px;
+}
+
+.table .body.no-scores > div{
+    display: block;
+}
+.table .body > div{
+    color:#FFFBFE ;
+    background-color: hsl(201, 60%, 30%);
+    margin-top:3px;
+    padding: .4em;
+}
+.table .body.body.no-scores > div{
+    color:#FFFBFE ;
+    background: transparent;
+    padding: 2em;
+}
+.table .body > div.remark{
+    background-color: hsl(132, 95%, 22%);
+}
+
+
+.table .body:not(.scores) > div > div:nth-child(1){
+   padding-left: 1em;
+  
+}
+ 
+ .icon-success{
+     width: 50px;
+     height: 50px;
+     border-radius: 50%;
+     background-color: hsl(132, 95%, 22%);
+     border: 2px solid #D0CFCF;
+     color:#D0CFCF;
+     display: grid;
+     place-items:center;
+     margin:0 auto;
+ }
+ .icon-success svg{
+     width: 50%;
+
+ }
+ #thanks h4{
+     color:#D0CFCF;
+ }
+
+
+.show-scores{
+    display:none;
+}
+
+ .loading {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    -webkit-animation: spin 1s ease-in-out infinite;
+  }
+  
+  @keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+  }
+  @-webkit-keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+  }
+
+  @media screen and (max-width:900px) {
+      .icon.show-scores{
+          display: inline-block;
+      }
+      .show-scores{
+          display:inline-block;
+      }
+      .ads,.table-container{
+          display: none;
+      }
+      main{
+        display:block;
+      }
+      .modal{
+        
+        z-index: 10;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top:0;
+        left:0;
+        background-color: rgba(0, 0, 0, 0.7);
+
+        display: grid;
+        place-items: center;
+        padding: 15px;
+      }
+      .table{
+          width: 320px;
+          font-size:12px;
+      }
+      .table .header,.table .body > div{
+        display:grid;
+        grid-template-columns:  30px 200px 70px;
+    }
+    
   }
